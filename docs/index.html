@@ -198,7 +198,7 @@ footer .wrap { padding-top: 20px; padding-bottom: 40px; }
 
 <script>
 (async function () {
-  const res = await fetch('data.json');
+  const res = await fetch('data.json?v=2026-10-13b'); // changer la version à chaque mise à jour des données
   const { results: R, videos: V } = await res.json();
 
   // ---------- formats de nombres (français) ----------
