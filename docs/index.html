@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finary sur YouTube : ce qui fait des vues</title>
+<meta name="description" content="Analyse indépendante de 390 vidéos de la chaîne YouTube de Finary : formats, thèmes, titres, et le plan pour mesurer les inscriptions venues de YouTube.">
+<meta property="og:title" content="Finary sur YouTube : ce qui fait des vues, et ce qu'il reste à mesurer">
+<meta property="og:description" content="390 vidéos analysées : formats, thèmes, titres. Par Léo Postollec.">
+<meta property="og:type" content="website">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #75736d;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,.10);
+  --s1: #2a78d6; --s2: #eb6834; --dim: #c9c8c0; --link: #1c5cab; --chip: #f0efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a988f;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,.10);
+    --s1: #3987e5; --s2: #d95926; --dim: #4d4c48; --link: #86b6ef; --chip: #262624;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --muted: #9a988f;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,.10);
+  --s1: #3987e5; --s2: #d95926; --dim: #4d4c48; --link: #86b6ef; --chip: #262624;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--link); text-underline-offset: 2px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+header.wrap { padding-top: 48px; padding-bottom: 8px; }
+.eyebrow { margin: 0 0 12px; font-size: 13px; letter-spacing: .02em; color: var(--muted); text-transform: uppercase; }
+h1 { margin: 0 0 14px; font-size: clamp(28px, 5vw, 40px); line-height: 1.12; letter-spacing: -.02em; font-weight: 700; text-wrap: balance; }
+.lead { margin: 0 0 14px; font-size: 18px; color: var(--ink2); max-width: 680px; }
+.by { margin: 0; font-size: 14px; color: var(--muted); }
+main.wrap { padding-bottom: 40px; }
+.tiles { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px; margin: 28px 0 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 18px 16px; min-width: 0; }
+.tile .k { font-size: 13px; color: var(--ink2); }
+.tile .v { font-size: 30px; font-weight: 650; letter-spacing: -.01em; margin-top: 2px; }
+.tile.hero .v { font-size: 52px; line-height: 1.05; }
+.tile .d { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px 24px 18px; margin: 16px 0; }
+.card h2 { margin: 0 0 6px; font-size: 21px; line-height: 1.25; letter-spacing: -.01em; text-wrap: balance; }
+.card > p { margin: 0 0 18px; color: var(--ink2); max-width: 700px; }
+.num { font-variant-numeric: tabular-nums; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 14px; font-size: 13px; color: var(--ink2); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.legend i.ring { border-radius: 50%; border: 2px solid var(--ink2); width: 10px; height: 10px; }
+.legend i.dot { border-radius: 50%; }
+.s1 { background: var(--s1); } .s2 { background: var(--s2); } .dim { background: var(--dim); }
+/* barres horizontales */
+.hb-row { margin: 0 0 14px; }
+.hb-label { font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+.hb-sub { color: var(--muted); margin-left: 6px; font-size: 13px; }
+.hb-track { position: relative; display: flex; align-items: center; gap: 8px; height: 14px; margin: 3px 0; }
+.hb-track.single { height: 18px; }
+.hb-bar { flex: 0 0 auto; height: 10px; border-radius: 0 4px 4px 0; min-width: 2px; cursor: default; outline-offset: 2px; transition: filter .15s; }
+.hb-track.single .hb-bar { height: 16px; }
+.hb-bar:hover, .hb-bar:focus-visible { filter: brightness(1.12); }
+.hb-val { position: relative; z-index: 1; font-size: 13px; color: var(--ink2); font-variant-numeric: tabular-nums; white-space: nowrap; background: var(--surface); padding: 0 3px; margin-left: -3px; border-radius: 3px; }
+.hb-na { font-size: 13px; color: var(--muted); }
+.hb-ref { position: absolute; top: -3px; bottom: -3px; width: 0; border-left: 1px solid var(--ink2); opacity: .55; pointer-events: none; }
+.hb-axis { position: relative; height: 18px; font-size: 12px; color: var(--muted); }
+.hb-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+/* colonnes */
+.vc { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
+.vc-plot { position: relative; height: 190px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; border-bottom: 1px solid var(--axis); }
+.vc-bar { width: min(24px, 62%); border-radius: 4px 4px 0 0; background: var(--s1); min-height: 2px; outline-offset: 2px; }
+.vc-bar.light { opacity: .45; }
+.vc-bar:hover, .vc-bar:focus-visible { filter: brightness(1.12); }
+.vc-val { font-size: 12px; color: var(--ink2); margin-bottom: 4px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vc-label { font-size: 12px; color: var(--muted); text-align: center; margin-top: 6px; line-height: 1.25; }
+.note { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+/* nuage de points (effets des titres) */
+svg text { font-family: inherit; }
+.dp-row:hover .dp-hit, .dp-row:focus .dp-hit { fill: var(--grid); }
+/* tableaux */
+details { margin-top: 12px; }
+summary { cursor: pointer; font-size: 13px; color: var(--ink2); width: fit-content; }
+.tw { overflow-x: auto; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); padding: 6px 10px 6px 0; border-bottom: 1px solid var(--axis); white-space: nowrap; }
+td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--grid); vertical-align: top; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.t { min-width: 220px; }
+.chip { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--chip); color: var(--ink2); white-space: nowrap; }
+/* explorateur */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.filters select, .filters input { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--axis); border-radius: 10px; padding: 8px 10px; min-height: 40px; }
+.filters input { flex: 1 1 200px; }
+.more { margin-top: 12px; font: inherit; font-size: 14px; color: var(--ink); background: var(--chip); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.count { font-size: 13px; color: var(--muted); margin: 0 0 6px; }
+/* tests */
+.tests { counter-reset: t; display: grid; gap: 12px; }
+.test { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.test h3 { margin: 0 0 4px; font-size: 16px; }
+.test p { margin: 0; color: var(--ink2); font-size: 15px; }
+.test .m { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.method { font-size: 15px; color: var(--ink2); }
+.method li { margin-bottom: 6px; }
+footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+footer .wrap { padding-top: 20px; padding-bottom: 40px; }
+#tip { position: fixed; z-index: 10; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-size: 13px; box-shadow: 0 6px 24px rgba(0,0,0,.14); max-width: 280px; opacity: 0; transition: opacity .12s; }
+#tip b { display: block; font-size: 15px; font-variant-numeric: tabular-nums; }
+#tip span { color: var(--ink2); display: block; }
+@media (max-width: 640px) {
+  .tiles { grid-template-columns: 1fr 1fr; }
+  .tile.hero { grid-column: 1 / -1; }
+  .card { padding: 18px 16px 14px; border-radius: 14px; }
+  .tile.hero .v { font-size: 44px; }
+  .vc-label { font-size: 11px; }
+  .vc-val { font-size: 11px; }
+  .hide-sm { display: none; }
+  td.t { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <p class="eyebrow">Analyse indépendante · données publiques du 13 octobre 2026</p>
+  <h1>Ce qui fait des vues sur la chaîne YouTube de Finary, et ce qu'il reste à mesurer</h1>
+  <p class="lead">J'ai passé au crible les 390 vidéos longues de @Finary : formats, thèmes, titres, durée. Les vues ne racontent que la moitié de l'histoire : la question qui compte pour la croissance, c'est combien d'inscriptions chaque vidéo apporte.</p>
+  <p class="by">Par Léo Postollec · <a href="https://github.com/leopostollec/finary-youtube-growth">code et données sur GitHub</a> · sans lien avec Finary</p>
+</header>
+
+<main class="wrap">
+  <section class="tiles" id="tiles" aria-label="Chiffres clés"></section>
+
+  <section class="card" id="trend"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="formats"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="pivot"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="intent"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="matrix"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="titles"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="durations"><h2></h2><p></p><div class="chart"></div></section>
+  <section class="card" id="shorts"><h2></h2><p></p><div class="chart"></div></section>
+
+  <section class="card" id="tests">
+    <h2>Ce que je testerais en premier</h2>
+    <p>Trois tests, du plus structurant au plus rapide. Le premier conditionne les deux autres : sans inscriptions par vidéo, on optimise des vues.</p>
+    <div class="tests">
+      <div class="test"><h3>1. Mesurer les inscriptions pour 1 000 vues, par format</h3>
+        <p>Un lien suivi par vidéo (UTM), un lien court dit à l'oral, et la question « Comment as-tu connu Finary ? » à l'inscription. Hypothèse : les analyses de patrimoine font moins de vues mais convertissent mieux, parce qu'elles montrent l'app.</p>
+        <p class="m">Décision : si une analyse rapporte au moins 2,5 fois plus d'inscriptions pour 1 000 vues qu'un récit, garder sa place dans le calendrier ; sinon, poursuivre le virage vers les récits et les cours.</p></div>
+      <div class="test"><h3>2. Raconter les analyses de patrimoine comme des récits</h3>
+        <p>Même contenu, mais un titre et une ouverture d'histoire (un enjeu, un montant, un retournement), sans le libellé de série. Retirer le libellé seul n'a rien changé (indice 0,55 avec ou sans) : c'est l'angle qui compte.</p>
+        <p class="m">Mesure : indice de performance à 28 jours et inscriptions pour 1 000 vues, sur 6 analyses contre les 6 précédentes.</p></div>
+      <div class="test"><h3>3. Un parcours d'accueil par thème de vidéo</h3>
+        <p>Une personne inscrite depuis une vidéo ETF reçoit un parcours ETF (connecter son PEA, voir ses frais) ; depuis une vidéo crypto, un parcours crypto. Aujourd'hui le message est probablement le même pour tous.</p>
+        <p class="m">Mesure : comptes connectés à 7 jours et passage à l'offre payante à 30 jours, contre un groupe témoin.</p></div>
+    </div>
+    <p class="note">Le plan de mesure complet (événements, attribution, requêtes SQL, tableau de bord) est dans le dépôt : <a href="https://github.com/leopostollec/finary-youtube-growth/blob/main/measurement/mesure-youtube-inscriptions.md">mesure-youtube-inscriptions.md</a>.</p>
+  </section>
+
+  <section class="card" id="top"><h2>Les 15 vidéos qui ont le plus dépassé leur époque</h2><p>Indice = vues de la vidéo ÷ vues médianes des vidéos publiées à la même époque. 2,0 = deux fois la vidéo typique.</p><div class="chart"></div></section>
+
+  <section class="card" id="explore"><h2>Toutes les vidéos</h2><p>Filtrez par format ou par thème, ou cherchez un mot dans les titres.</p>
+    <div class="filters">
+      <select id="f-format" aria-label="Format"></select>
+      <select id="f-theme" aria-label="Thème"></select>
+      <select id="f-sort" aria-label="Trier par"><option value="perf_index">Trier par indice</option><option value="views">Trier par vues</option><option value="recent">Plus récentes d'abord</option></select>
+      <input id="f-q" type="search" placeholder="Chercher dans les titres" aria-label="Chercher dans les titres">
+    </div>
+    <p class="count" id="f-count"></p>
+    <div class="tw"><table id="f-table"></table></div>
+    <button class="more" id="f-more" type="button">Afficher plus</button>
+  </section>
+
+  <section class="card" id="method">
+    <h2>Méthode et limites</h2>
+    <ul class="method" id="method-list"></ul>
+  </section>
+</main>
+
+<footer><div class="wrap">Analyse indépendante de Léo Postollec, à partir de données publiques. Sans lien avec Finary, qui n'a ni commandé ni relu ce travail. Réalisée avec l'aide d'une IA (Claude) : collecte, étiquetage, code. Les choix d'analyse et les conclusions sont les miens.</div></footer>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(async function () {
+  const res = await fetch('data.json');
+  const { results: R, videos: V } = await res.json();
+
+  // ---------- formats de nombres (français) ----------
+  const nb = ' ';
+  const k = v => v >= 1e6 ? (v / 1e6).toFixed(1).replace('.', ',').replace(',0', '') + nb + 'M' : v >= 1e3 ? Math.round(v / 1e3) + nb + 'k' : String(v);
+  const pct = v => Math.round(v * 100) + nb + '%';
+  const xi = v => '×' + Number(v).toFixed(2).replace('.', ',');
+  const dec = (v, d = 1) => Number(v).toFixed(d).replace('.', ',');
+  const by = (arr, key) => Object.fromEntries(arr.map(r => [r[key], r]));
+  const FORMAT_LABEL = Object.fromEntries(R.by_format.map(f => [f.key, f.label]));
+  const THEME_LABEL = Object.fromEntries(R.by_theme.map(t => [t.key, t.label]));
+
+  // ---------- petites briques ----------
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const tip = document.getElementById('tip');
+  function showTip(e, lines, target) {
+    tip.replaceChildren();
+    tip.append(el('b', null, lines[0]));
+    lines.slice(1).filter(Boolean).forEach(l => tip.append(el('span', null, l)));
+    const r = target.getBoundingClientRect();
+    const x = e && e.clientX != null ? e.clientX : r.left + r.width / 2;
+    const y = e && e.clientY != null ? e.clientY : r.top;
+    tip.style.opacity = 1;
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(innerWidth - w - 8, x + 12)) + 'px';
+    tip.style.top = Math.max(8, y - h - 12) + 'px';
+  }
+  const hideTip = () => { tip.style.opacity = 0; };
+  function bindTip(node, lines) {
+    node.tabIndex = 0;
+    node.addEventListener('pointermove', e => showTip(e, lines(), node));
+    node.addEventListener('pointerleave', hideTip);
+    node.addEventListener('focus', () => showTip(null, lines(), node));
+    node.addEventListener('blur', hideTip);
+  }
+  function setHead(id, title, text) {
+    const s = document.getElementById(id);
+    s.querySelector('h2').textContent = title;
+    s.querySelector('p').textContent = text;
+    return s.querySelector('.chart');
+  }
+  function legend(parent, items) {
+    const l = el('div', 'legend');
+    items.forEach(([cls, name]) => { const s = el('span'); s.append(el('i', cls), document.createTextNode(name)); l.append(s); });
+    parent.append(l);
+  }
+  function dataTable(parent, cols, rows, summary = 'Voir les données') {
+    const d = el('details'); d.append(el('summary', null, summary));
+    const w = el('div', 'tw'); const t = el('table');
+    const tr = el('tr'); cols.forEach(c => tr.append(el('th', c.r ? 'r' : '', c.h))); t.append(tr);
+    rows.forEach(r => { const row = el('tr'); cols.forEach(c => { const td = el('td', c.r ? 'r' : (c.t ? 't' : ''), ''); const v = c.v(r); if (v instanceof Node) td.append(v); else td.textContent = v; row.append(td); }); t.append(row); });
+    w.append(t); d.append(w); parent.append(d);
+  }
+
+  // barres horizontales (une ou deux séries) ; values peut contenir null (trop peu de vidéos)
+  function hbars(parent, rows, { series, fmt, max, ref, refLabel }) {
+    const m = max || Math.max(...rows.flatMap(r => r.values.filter(v => v != null))) * 1.05;
+    const W = v => `calc((100% - 4.2rem) * ${Math.min(v, m) / m})`;
+    if (series.length > 1) legend(parent, series.map(s => [s.cls, s.name]));
+    rows.forEach(r => {
+      const row = el('div', 'hb-row');
+      const lab = el('div', 'hb-label', r.label); if (r.sub) lab.append(el('span', 'hb-sub', r.sub)); row.append(lab);
+      r.values.forEach((v, i) => {
+        const tr = el('div', 'hb-track' + (series.length === 1 ? ' single' : ''));
+        if (v == null) { tr.append(el('span', 'hb-na', 'moins de 8 vidéos : pas de médiane')); row.append(tr); return; }
+        const cls = (r.cls && r.cls[i]) || series[i].cls;
+        const bar = el('div', 'hb-bar ' + cls); bar.style.width = W(v);
+        bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', `${r.label}, ${series[i].name} : ${fmt(v)}`);
+        bindTip(bar, () => [fmt(v), series.length > 1 ? `${series[i].name} · ${r.label}` : r.label, r.tip && r.tip[i]]);
+        tr.append(bar, el('span', 'hb-val', fmt(v)));
+        if (ref != null) { const rl = el('div', 'hb-ref'); rl.style.left = W(ref); tr.append(rl); }
+        row.append(tr);
+      });
+      parent.append(row);
+    });
+    if (ref != null && refLabel) parent.append(el('p', 'note', refLabel));
+  }
+
+  function columns(parent, rows, { fmt, note }) {
+    const m = Math.max(...rows.map(r => r.value)) * 1.08;
+    const g = el('div', 'vc');
+    rows.forEach(r => {
+      const c = el('div'); const p = el('div', 'vc-plot');
+      const bar = el('div', 'vc-bar' + (r.light ? ' light' : '')); bar.style.height = (r.value / m * 100) + '%';
+      bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', `${r.label} : ${fmt(r.value)}`);
+      bindTip(bar, () => [fmt(r.value), r.label, r.tip]);
+      p.append(el('span', 'vc-val', fmt(r.value)), bar);
+      c.append(p, el('div', 'vc-label', r.label)); g.append(c);
+    });
+    parent.append(g);
+    if (note) parent.append(el('p', 'note', note));
+  }
+
+  // ---------- chiffres clés ----------
+  const O = R.overview, S = R.shorts;
+  const tiles = document.getElementById('tiles');
+  [
+    ['hero', 'Vues médianes par vidéo longue, 12 derniers mois', k(O.median_views_last12), 'la vidéo typique récente'],
+    ['', 'Vidéos longues analysées', String(O.n_long), `${dec(O.uploads_per_month_last12)} par mois sur un an`],
+    ['', 'Vues médianes par Short', k(S.median_views), `sur les ${S.n} derniers Shorts`],
+  ].forEach(([cls, label, v, d]) => { const t = el('div', 'tile ' + cls); t.append(el('div', 'k', label), el('div', 'v', v), el('div', 'd', d)); tiles.append(t); });
+
+  // ---------- 1. tendance ----------
+  const first = R.trend[0], recent = R.trend.filter(t => ['1 à 3 mois', '3 à 6 mois', '6 à 12 mois'].includes(t.cohort));
+  let c = setHead('trend', `Une vidéo typique fait aujourd'hui plus de ${Math.floor(O.median_views_last12 / first.median_views / 10) * 10} fois plus de vues qu'à ses débuts`,
+    `Vues médianes par vidéo selon l'époque de publication. Sur les 12 derniers mois : ${k(O.median_views_last12)} ; il y a 4 ans et plus : ${k(first.median_views)}.`);
+  columns(c, R.trend.map(t => ({ label: t.cohort, value: t.median_views, light: t.cohort === 'moins de 1 mois', tip: `${t.n} vidéos · moitié entre ${k(t.p25)} et ${k(t.p75)}` })),
+    { fmt: k, note: 'Les vidéos de moins d’un mois (barre claire) continuent d’accumuler des vues : elles sont exclues des comparaisons suivantes.' });
+  dataTable(c, [{ h: 'Époque', v: r => r.cohort }, { h: 'Vidéos', r: 1, v: r => r.n }, { h: 'Vues médianes', r: 1, v: r => k(r.median_views) }, { h: '25e centile', r: 1, v: r => k(r.p25) }, { h: '75e centile', r: 1, v: r => k(r.p75) }], R.trend);
+
+  // ---------- 2. formats ----------
+  const F = by(R.by_format, 'key');
+  const eff = R.format_effects_vs_analyse;
+  c = setHead('formats', 'Le format le plus produit est celui qui fait le moins de vues',
+    `Les analyses de patrimoine font ${pct(F.analyse_patrimoine.share_videos)} des vidéos mais ${pct(F.analyse_patrimoine.share_views)} des vues. À époque égale, un récit fait ${dec(eff.recit.x)} fois plus de vues qu'une analyse, un cours ${dec(eff.cours_guide.x)} fois plus.`);
+  hbars(c, R.by_format.map(f => ({ label: f.label, sub: `${f.n} vidéos`, values: [f.share_videos, f.share_views], tip: [null, f.median_index != null ? `indice médian ${xi(f.median_index)}` : null] })),
+    { series: [{ cls: 's1', name: 'Part des vidéos' }, { cls: 's2', name: 'Part des vues' }], fmt: pct });
+  dataTable(c, [{ h: 'Format', v: r => r.label }, { h: 'Vidéos', r: 1, v: r => r.n }, { h: 'Part des vidéos', r: 1, v: r => pct(r.share_videos) }, { h: 'Part des vues', r: 1, v: r => pct(r.share_views) }, { h: 'Indice médian', r: 1, v: r => r.median_index == null ? '—' : xi(r.median_index) }, { h: 'Vues médianes', r: 1, v: r => k(r.median_views) }], R.by_format);
+
+  // ---------- 3. virage ----------
+  const MX = by(R.format_mix, 'key');
+  c = setHead('pivot', 'La chaîne a déjà pivoté vers les récits et les cours',
+    `Sur les 12 derniers mois, les analyses de patrimoine passent de ${pct(MX.analyse_patrimoine.share_before)} à ${pct(MX.analyse_patrimoine.share_last12)} des sorties, les récits de ${pct(MX.recit.share_before)} à ${pct(MX.recit.share_last12)}. Les vues ont suivi.`);
+  hbars(c, R.format_mix.map(m => ({ label: m.label, values: [m.share_before, m.share_last12] })),
+    { series: [{ cls: 'dim', name: 'Avant (plus d’un an)' }, { cls: 's1', name: '12 derniers mois' }], fmt: pct });
+  dataTable(c, [{ h: 'Format', v: r => r.label }, { h: 'Avant', r: 1, v: r => pct(r.share_before) }, { h: '12 derniers mois', r: 1, v: r => pct(r.share_last12) }], R.format_mix);
+
+  // ---------- 4. intention ----------
+  const IN = by(R.intent, 'intent');
+  const INTENT_LABEL = { forte: 'Lien fort avec un produit', moyenne: 'Lien moyen', faible: 'Sans lien direct', produit: 'Vidéos sur Finary' };
+  const INTENT_SUB = { forte: 'bourse, ETF, crypto, épargne, stratégie', moyenne: 'immobilier, fiscalité, retraite', faible: 'ultra-riches, géopolitique', produit: 'démos, annonces' };
+  c = setHead('intent', `${pct(IN.faible.share_views)} des vues viennent de thèmes sans lien direct avec un produit Finary`,
+    `Ultra-riches, géopolitique : ${pct(IN.faible.share_videos)} des vidéos, ${pct(IN.faible.share_views)} des vues, et une part des sorties qui monte (${pct(IN.faible.share_uploads_before)} → ${pct(IN.faible.share_uploads_last12)}). Ces vues amènent-elles des inscriptions ? De l'extérieur, impossible à dire : c'est la première chose que je mesurerais.`);
+  hbars(c, ['forte', 'moyenne', 'faible', 'produit'].map(l => ({ label: INTENT_LABEL[l], sub: INTENT_SUB[l], values: [IN[l].share_videos, IN[l].share_views], tip: [null, `indice médian ${xi(IN[l].median_index)}`] })),
+    { series: [{ cls: 's1', name: 'Part des vidéos' }, { cls: 's2', name: 'Part des vues' }], fmt: pct });
+  c.append(el('p', 'note', 'Le lien avec un produit est une hypothèse de ma part (le spectateur peut-il agir tout de suite dans l’app ?), à valider avec les données d’inscription.'));
+  dataTable(c, [{ h: 'Lien avec un produit', v: r => INTENT_LABEL[r.intent] }, { h: 'Vidéos', r: 1, v: r => r.n }, { h: 'Part des vidéos', r: 1, v: r => pct(r.share_videos) }, { h: 'Part des vues', r: 1, v: r => pct(r.share_views) }, { h: 'Indice médian', r: 1, v: r => xi(r.median_index) }, { h: 'Sorties avant', r: 1, v: r => pct(r.share_uploads_before) }, { h: 'Sorties 12 mois', r: 1, v: r => pct(r.share_uploads_last12) }], R.intent);
+
+  // ---------- 5. matrice ----------
+  const M = Object.fromEntries(R.matrix.map(m => [m.format + '|' + m.theme, m]));
+  const cS = M['cours_guide|strategie_patrimoine'], cB = M['cours_guide|bourse_etf'], aS = M['analyse_patrimoine|strategie_patrimoine'];
+  c = setHead('matrix', 'Le point idéal : les cours sur l’investissement',
+    `Indice médian par format et par thème (au moins 5 vidéos). Les récits sur les ultra-riches font le plus de vues (${xi(R.matrix[0].median_index)}), loin du produit. Parmi les thèmes proches du produit, les cours sur la stratégie patrimoniale (${xi(cS.median_index)}) et sur la bourse (${xi(cB.median_index)}) réunissent audience et intention ; les analyses de patrimoine, qui en sont le cœur, restent à ${xi(aS.median_index)}.`);
+  legend(c, [['s1', 'Thème proche d’un produit Finary'], ['dim', 'Autres thèmes']]);
+  hbars(c, R.matrix.map(m => ({ label: `${m.format_label} · ${m.theme_label}`, sub: `${m.n} vidéos`, values: [m.median_index], cls: [m.intent === 'forte' ? 's1' : 'dim'] })),
+    { series: [{ cls: 's1', name: 'Indice médian' }], fmt: xi, ref: 1, refLabel: 'Trait vertical : la vidéo typique de la même époque (×1,00).' });
+  dataTable(c, [{ h: 'Format', v: r => r.format_label }, { h: 'Thème', v: r => r.theme_label }, { h: 'Lien produit', v: r => r.intent }, { h: 'Vidéos', r: 1, v: r => r.n }, { h: 'Indice médian', r: 1, v: r => xi(r.median_index) }], R.matrix);
+
+  // ---------- 6. titres : brut vs à format égal ----------
+  const TF = R.title_features.filter(f => f.adjusted);
+  const TFk = by(TF, 'key');
+  c = setHead('titles', 'À format égal, un montant en euros dans le titre aide ; « secret » n’aide pas',
+    `Les corrélations brutes trompent. « Secret » semble presque doubler les vues (${xi(TFk.secret.lift)}), mais c'est parce que les récits l'emploient : à format égal, l'effet disparaît (${xi(TFk.secret.adjusted.x)}). À l'inverse, un montant en € semble pénaliser (${xi(TFk.montant_euros.lift)}) alors qu'à format égal il aide (${xi(TFk.montant_euros.adjusted.x)}).`);
+  legend(c, [['ring', 'Écart brut'], ['dot s1', 'À format égal, avec intervalle de confiance à 90 %']]);
+  const order = TF.slice().sort((a, b) => b.adjusted.x - a.adjusted.x);
+  const dotsBox = c.appendChild(el('div', 'dp'));
+  function drawDots() {
+    const host = dotsBox;
+    host.replaceChildren();
+    const W = host.clientWidth || 600, narrow = W < 560;
+    const labelW = narrow ? 0 : 230, rowH = narrow ? 50 : 34, top = 8, axisH = 26;
+    const H = top + order.length * rowH + axisH;
+    const lo = Math.log(0.5), hi = Math.log(2.2), x0 = labelW + (narrow ? 22 : 10), x1 = W - 16;
+    const X = v => x0 + (Math.log(Math.max(0.5, Math.min(2.2, v))) - lo) / (hi - lo) * (x1 - x0);
+    const NS = 'http://www.w3.org/2000/svg';
+    const s = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const a in attrs) n.setAttribute(a, attrs[a]); if (parent) parent.append(n); return n; };
+    const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'Effet des motifs de titre, brut et à format égal' });
+    [0.5, 0.75, 1, 1.5, 2].forEach(t => {
+      s('line', { x1: X(t), x2: X(t), y1: top, y2: H - axisH, stroke: t === 1 ? 'var(--ink2)' : 'var(--grid)', 'stroke-width': 1, opacity: t === 1 ? .6 : 1 }, svg);
+      const tx = s('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', 'font-size': 12, fill: 'var(--muted)' }, svg); tx.textContent = xi(t).replace(',00', '').replace(/,50$/, ',5');
+    });
+    order.forEach((f, i) => {
+      const yC = top + i * rowH + (narrow ? 32 : rowH / 2);
+      const g = s('g', { class: 'dp-row', tabindex: 0 }, svg);
+      s('rect', { class: 'dp-hit', x: 0, y: top + i * rowH, width: W, height: rowH, fill: 'transparent', rx: 6 }, g);
+      const lab = s('text', narrow ? { x: x0, y: yC - 14, 'font-size': 13, fill: 'var(--ink)' } : { x: 0, y: yC + 4, 'font-size': 13, fill: 'var(--ink)' }, g);
+      lab.textContent = f.label;
+      s('line', { x1: X(f.adjusted.lo), x2: X(f.adjusted.hi), y1: yC, y2: yC, stroke: 'var(--s1)', 'stroke-width': 2, 'stroke-linecap': 'round' }, g);
+      s('circle', { cx: X(f.lift), cy: yC, r: 5, fill: 'var(--surface)', stroke: 'var(--ink2)', 'stroke-width': 2 }, g);
+      s('circle', { cx: X(f.adjusted.x), cy: yC, r: 6, fill: 'var(--s1)', stroke: 'var(--surface)', 'stroke-width': 2 }, g);
+      const lines = () => [`${xi(f.adjusted.x)} à format égal`, f.label, `intervalle à 90 % : ${xi(f.adjusted.lo)} – ${xi(f.adjusted.hi)}`, `écart brut : ${xi(f.lift)} · ${f.n_with} vidéos`];
+      g.addEventListener('pointermove', e => showTip(e, lines(), g)); g.addEventListener('pointerleave', hideTip);
+      g.addEventListener('focus', () => showTip(null, lines(), g)); g.addEventListener('blur', hideTip);
+    });
+    host.append(svg);
+  }
+  drawDots();
+  let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(drawDots, 150); });
+  c.append(el('p', 'note', 'À format égal = régression du logarithme de l’indice sur le format et l’ensemble des motifs ; intervalles par bootstrap (2 000 tirages). Un intervalle qui chevauche ×1 = effet non démontré.'));
+  dataTable(c, [{ h: 'Motif', v: r => r.label }, { h: 'Vidéos', r: 1, v: r => r.n_with }, { h: 'Écart brut', r: 1, v: r => xi(r.lift) }, { h: 'À format égal', r: 1, v: r => xi(r.adjusted.x) }, { h: 'IC 90 %', r: 1, v: r => `${xi(r.adjusted.lo)} – ${xi(r.adjusted.hi)}` }], order);
+
+  // ---------- 7. durée ----------
+  const D = R.durations, longest = D[D.length - 1];
+  c = setHead('durations', `Les vidéos de 45 minutes et plus font ${dec(longest.median_index)} fois la vidéo typique`,
+    'Indice médian par durée (hors vidéos sur Finary, des démos courtes). Les formats longs sont surtout des interviews et des cours : l’audience reste quand le sujet tient.');
+  columns(c, D.map(d => ({ label: d.bucket, value: d.median_index, tip: `${d.n} vidéos` })), { fmt: xi });
+  dataTable(c, [{ h: 'Durée', v: r => r.bucket }, { h: 'Vidéos', r: 1, v: r => r.n }, { h: 'Indice médian', r: 1, v: r => xi(r.median_index) }], D);
+
+  // ---------- 8. Shorts ----------
+  const ratio = Math.round(O.median_views_last12 / S.median_views);
+  c = setHead('shorts', `Les Shorts touchent ${ratio} fois moins de monde et renvoient rarement vers les vidéos longues`,
+    `Sur les ${S.n} derniers Shorts, la moitié fait entre ${k(S.p25)} et ${k(S.p75)} vues, et ${pct(S.share_pointing_to_long)} seulement annoncent la vidéo complète dans leur titre. Bien employés, ils peuvent servir de bande-annonce : lien vers la vidéo associée, et mesure du passage Short → vidéo → inscription.`);
+  hbars(c, [{ label: 'Vidéo longue, 12 derniers mois', values: [O.median_views_last12] }, { label: 'Short, 48 derniers', values: [S.median_views] }],
+    { series: [{ cls: 's1', name: 'Vues médianes' }], fmt: k });
+
+  // ---------- 9. top 15 ----------
+  const fmtIdx = v => xi(v);
+  const link = r => { const a = el('a', null, r.title); a.href = r.url; a.target = '_blank'; a.rel = 'noopener'; return a; };
+  const chip = t => el('span', 'chip', t);
+  function table(t, rows) {
+    t.replaceChildren();
+    const head = el('tr'); [['Vidéo', ''], ['Vues', 'r'], ['Époque', 'hide-sm'], ['Format', ''], ['Indice', 'r']].forEach(([h, cls]) => head.append(el('th', cls, h))); t.append(head);
+    rows.forEach(r => {
+      const tr = el('tr');
+      const td1 = el('td', 't'); td1.append(link(r)); tr.append(td1);
+      tr.append(el('td', 'r', k(r.views)), el('td', 'hide-sm', r.cohort));
+      const td4 = el('td'); td4.append(chip(FORMAT_LABEL[r.format] || r.format)); tr.append(td4);
+      tr.append(el('td', 'r', r.perf_index == null ? '—' : fmtIdx(r.perf_index)));
+      t.append(tr);
+    });
+  }
+  const topWrap = document.querySelector('#top .chart'); const tt = el('table'); const tw = el('div', 'tw'); tw.append(tt); topWrap.append(tw); table(tt, R.top);
+
+  // ---------- 10. explorateur ----------
+  const fF = document.getElementById('f-format'), fT = document.getElementById('f-theme'), fS = document.getElementById('f-sort'), fQ = document.getElementById('f-q');
+  fF.append(new Option('Tous les formats', ''), ...R.by_format.map(f => new Option(f.label, f.key)));
+  fT.append(new Option('Tous les thèmes', ''), ...R.by_theme.map(t => new Option(t.label, t.key)));
+  const ftable = document.getElementById('f-table'), fcount = document.getElementById('f-count'), more = document.getElementById('f-more');
+  let limit = 25;
+  function render() {
+    const q = fQ.value.trim().toLowerCase();
+    let rows = V.filter(v => (!fF.value || v.format === fF.value) && (!fT.value || v.theme === fT.value) && (!q || v.title.toLowerCase().includes(q)));
+    const key = fS.value;
+    rows.sort((a, b) => key === 'recent' ? 0 : (b[key] ?? -1) - (a[key] ?? -1));
+    fcount.textContent = `${rows.length} vidéo${rows.length > 1 ? 's' : ''}`;
+    table(ftable, rows.slice(0, limit));
+    more.hidden = rows.length <= limit;
+  }
+  [fF, fT, fS].forEach(n => n.addEventListener('change', () => { limit = 25; render(); }));
+  fQ.addEventListener('input', () => { limit = 25; render(); });
+  more.addEventListener('click', () => { limit += 50; render(); });
+  render();
+
+  // ---------- méthode ----------
+  const L = R.labels_check;
+  [
+    `Relevé du ${new Date(R.snapshot).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} sur la page publique de la chaîne : ${O.n_long} vidéos longues (dont un live) et les ${S.n} Shorts les plus récents. Vues arrondies comme affichées (« 218 k »), dates relatives (« il y a 1 an »). Le script agent/youtube_api.py récupère les chiffres exacts via l’API YouTube.`,
+    'Indice de performance : vues de la vidéo ÷ vues médianes des vidéos de la même époque. Il corrige l’ancienneté et la croissance de la chaîne. Les vidéos de moins d’un mois sont exclues des comparaisons.',
+    `Format et thème étiquetés par un LLM (Claude) avec un prompt publié dans le dépôt. Contrôle : un classifieur à règles indépendant reconnaît un motif dans ${L.n_rules_decided} titres sur ${O.n_long}, et donne alors le même format que le LLM dans ${pct(L.agreement_when_rules_decide)} des cas.`,
+    'Le « lien avec un produit » est une hypothèse de ma part. Les vues ne sont pas des inscriptions : sans données internes (liens suivis, déclaratif, codes), aucune conclusion sur la conversion n’est possible. C’est l’objet du plan de mesure.',
+    'Données publiques uniquement : pas de durée de visionnage, de taux de clic ni de revenus, que seul YouTube Studio fournit.',
+  ].forEach(t => document.getElementById('method-list').append(el('li', null, t)));
+})();
+</script>
+</body>
+</html>

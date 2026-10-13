@@ -1,0 +1,1047 @@
+{
+ "snapshot": "2026-10-13",
+ "channel": {
+  "handle": "@Finary",
+  "subscribers_label": "917 k",
+  "uploads_label": "975 vidéos (dont Shorts)"
+ },
+ "overview": {
+  "n_long": 390,
+  "n_compared": 382,
+  "total_views_long": 96462700,
+  "median_views_all": 132500,
+  "median_views_last12": 225000,
+  "n_last12": 104,
+  "uploads_per_month_last12": 8.67
+ },
+ "shorts": {
+  "n": 48,
+  "median_views": 27000,
+  "p25": 16000,
+  "p75": 56000,
+  "max": 279000,
+  "share_pointing_to_long": 0.08
+ },
+ "trend": [
+  {
+   "cohort": "4 ans et plus",
+   "n": 29,
+   "median_views": 6800,
+   "p25": 3500,
+   "p75": 20000
+  },
+  {
+   "cohort": "3 à 4 ans",
+   "n": 43,
+   "median_views": 57000,
+   "p25": 37000,
+   "p75": 85000
+  },
+  {
+   "cohort": "2 à 3 ans",
+   "n": 106,
+   "median_views": 110500,
+   "p25": 61750,
+   "p75": 235000
+  },
+  {
+   "cohort": "1 à 2 ans",
+   "n": 108,
+   "median_views": 195500,
+   "p25": 102750,
+   "p75": 362500
+  },
+  {
+   "cohort": "6 à 12 mois",
+   "n": 52,
+   "median_views": 240500,
+   "p25": 141250,
+   "p75": 534500
+  },
+  {
+   "cohort": "3 à 6 mois",
+   "n": 26,
+   "median_views": 147500,
+   "p25": 114500,
+   "p75": 412250
+  },
+  {
+   "cohort": "1 à 3 mois",
+   "n": 18,
+   "median_views": 266500,
+   "p25": 152500,
+   "p75": 386000
+  },
+  {
+   "cohort": "moins de 1 mois",
+   "n": 8,
+   "median_views": 328500,
+   "p25": 220250,
+   "p75": 440500
+  }
+ ],
+ "by_format": [
+  {
+   "key": "recit",
+   "label": "Récit / enquête",
+   "n": 41,
+   "share_videos": 0.11,
+   "share_views": 0.29,
+   "median_index": 2.46,
+   "median_views": 534000
+  },
+  {
+   "key": "cours_guide",
+   "label": "Cours / guide",
+   "n": 67,
+   "share_videos": 0.18,
+   "share_views": 0.28,
+   "median_index": 1.72,
+   "median_views": 269000
+  },
+  {
+   "key": "talk_expert",
+   "label": "Interview d'expert",
+   "n": 73,
+   "share_videos": 0.19,
+   "share_views": 0.17,
+   "median_index": 1.44,
+   "median_views": 146000
+  },
+  {
+   "key": "opinion_actu",
+   "label": "Opinion / actu",
+   "n": 16,
+   "share_videos": 0.04,
+   "share_views": 0.04,
+   "median_index": 1.05,
+   "median_views": 181000
+  },
+  {
+   "key": "temoignage",
+   "label": "Témoignage",
+   "n": 10,
+   "share_videos": 0.03,
+   "share_views": 0.02,
+   "median_index": 0.71,
+   "median_views": 130000
+  },
+  {
+   "key": "analyse_patrimoine",
+   "label": "Analyse de patrimoine",
+   "n": 144,
+   "share_videos": 0.38,
+   "share_views": 0.2,
+   "median_index": 0.69,
+   "median_views": 90000
+  },
+  {
+   "key": "finary_produit",
+   "label": "Produit Finary",
+   "n": 31,
+   "share_videos": 0.08,
+   "share_views": 0.01,
+   "median_index": 0.51,
+   "median_views": 6800
+  }
+ ],
+ "by_theme": [
+  {
+   "key": "ultra_riches",
+   "label": "Ultra-riches",
+   "n": 28,
+   "share_videos": 0.07,
+   "share_views": 0.21,
+   "median_index": 2.9,
+   "median_views": 563500
+  },
+  {
+   "key": "eco_geopolitique",
+   "label": "Économie & géopolitique",
+   "n": 43,
+   "share_videos": 0.11,
+   "share_views": 0.19,
+   "median_index": 1.53,
+   "median_views": 299000
+  },
+  {
+   "key": "crypto",
+   "label": "Crypto",
+   "n": 19,
+   "share_videos": 0.05,
+   "share_views": 0.04,
+   "median_index": 1.38,
+   "median_views": 152000
+  },
+  {
+   "key": "bourse_etf",
+   "label": "Bourse & ETF",
+   "n": 55,
+   "share_videos": 0.14,
+   "share_views": 0.15,
+   "median_index": 1.29,
+   "median_views": 151000
+  },
+  {
+   "key": "epargne_fire",
+   "label": "Épargne & FIRE",
+   "n": 35,
+   "share_videos": 0.09,
+   "share_views": 0.06,
+   "median_index": 1.02,
+   "median_views": 107000
+  },
+  {
+   "key": "immobilier",
+   "label": "Immobilier",
+   "n": 26,
+   "share_videos": 0.07,
+   "share_views": 0.05,
+   "median_index": 0.89,
+   "median_views": 101500
+  },
+  {
+   "key": "fiscalite_retraite",
+   "label": "Fiscalité & retraite",
+   "n": 21,
+   "share_videos": 0.05,
+   "share_views": 0.04,
+   "median_index": 0.85,
+   "median_views": 98000
+  },
+  {
+   "key": "strategie_patrimoine",
+   "label": "Stratégie patrimoniale",
+   "n": 117,
+   "share_videos": 0.31,
+   "share_views": 0.24,
+   "median_index": 0.77,
+   "median_views": 109000
+  },
+  {
+   "key": "finary",
+   "label": "Finary",
+   "n": 31,
+   "share_videos": 0.08,
+   "share_views": 0.01,
+   "median_index": 0.51,
+   "median_views": 6800
+  },
+  {
+   "key": "autre",
+   "label": "Autre",
+   "n": 7,
+   "share_videos": 0.02,
+   "share_views": 0.01,
+   "median_index": null,
+   "median_views": 26000
+  }
+ ],
+ "format_mix": [
+  {
+   "key": "analyse_patrimoine",
+   "label": "Analyse de patrimoine",
+   "share_last12": 0.26,
+   "share_before": 0.41
+  },
+  {
+   "key": "talk_expert",
+   "label": "Interview d'expert",
+   "share_last12": 0.11,
+   "share_before": 0.22
+  },
+  {
+   "key": "recit",
+   "label": "Récit / enquête",
+   "share_last12": 0.21,
+   "share_before": 0.08
+  },
+  {
+   "key": "cours_guide",
+   "label": "Cours / guide",
+   "share_last12": 0.22,
+   "share_before": 0.15
+  },
+  {
+   "key": "opinion_actu",
+   "label": "Opinion / actu",
+   "share_last12": 0.07,
+   "share_before": 0.03
+  },
+  {
+   "key": "temoignage",
+   "label": "Témoignage",
+   "share_last12": 0.12,
+   "share_before": 0.0
+  },
+  {
+   "key": "finary_produit",
+   "label": "Produit Finary",
+   "share_last12": 0.02,
+   "share_before": 0.1
+  }
+ ],
+ "durations": [
+  {
+   "bucket": "moins de 10 min",
+   "n": 17,
+   "median_index": 0.64
+  },
+  {
+   "bucket": "10 à 20 min",
+   "n": 121,
+   "median_index": 1.02
+  },
+  {
+   "bucket": "20 à 30 min",
+   "n": 112,
+   "median_index": 1.12
+  },
+  {
+   "bucket": "30 à 45 min",
+   "n": 29,
+   "median_index": 0.96
+  },
+  {
+   "bucket": "45 min et plus",
+   "n": 72,
+   "median_index": 1.46
+  }
+ ],
+ "title_features": [
+  {
+   "key": "secret",
+   "label": "Secret / caché",
+   "n_with": 17,
+   "median_with": 1.8,
+   "median_without": 0.95,
+   "lift": 1.89,
+   "adjusted": {
+    "x": 1.0,
+    "lo": 0.68,
+    "hi": 1.44
+   }
+  },
+  {
+   "key": "superlatif",
+   "label": "Superlatif (le plus…)",
+   "n_with": 27,
+   "median_with": 1.53,
+   "median_without": 0.96,
+   "lift": 1.59,
+   "adjusted": {
+    "x": 1.26,
+    "lo": 0.86,
+    "hi": 1.8
+   }
+  },
+  {
+   "key": "riche",
+   "label": "Richesse / milliardaires",
+   "n_with": 41,
+   "median_with": 1.52,
+   "median_without": 0.96,
+   "lift": 1.58,
+   "adjusted": {
+    "x": 1.07,
+    "lo": 0.85,
+    "hi": 1.34
+   }
+  },
+  {
+   "key": "vous",
+   "label": "S'adresse au spectateur (vous)",
+   "n_with": 32,
+   "median_with": 1.12,
+   "median_without": 0.98,
+   "lift": 1.15,
+   "adjusted": {
+    "x": 1.19,
+    "lo": 0.87,
+    "hi": 1.64
+   }
+  },
+  {
+   "key": "invite",
+   "label": "Invité nommé",
+   "n_with": 118,
+   "median_with": 1.01,
+   "median_without": 0.99,
+   "lift": 1.02
+  },
+  {
+   "key": "je",
+   "label": "L'hôte parle (je / mon)",
+   "n_with": 46,
+   "median_with": 0.96,
+   "median_without": 1.01,
+   "lift": 0.95,
+   "adjusted": {
+    "x": 1.2,
+    "lo": 0.98,
+    "hi": 1.46
+   }
+  },
+  {
+   "key": "question",
+   "label": "Titre en question",
+   "n_with": 76,
+   "median_with": 0.94,
+   "median_without": 1.02,
+   "lift": 0.93,
+   "adjusted": {
+    "x": 0.99,
+    "lo": 0.84,
+    "hi": 1.14
+   }
+  },
+  {
+   "key": "montant_euros",
+   "label": "Montant en € dans le titre",
+   "n_with": 71,
+   "median_with": 0.94,
+   "median_without": 1.04,
+   "lift": 0.91,
+   "adjusted": {
+    "x": 1.36,
+    "lo": 1.13,
+    "hi": 1.65
+   }
+  },
+  {
+   "key": "majuscules",
+   "label": "Un mot en MAJUSCULES",
+   "n_with": 8,
+   "median_with": 0.8,
+   "median_without": 1.01,
+   "lift": 0.79,
+   "adjusted": {
+    "x": 1.06,
+    "lo": 0.73,
+    "hi": 1.6
+   }
+  },
+  {
+   "key": "libelle_serie",
+   "label": "Libellé de série (« | Analyse de patrimoine »…)",
+   "n_with": 152,
+   "median_with": 0.77,
+   "median_without": 1.18,
+   "lift": 0.66
+  },
+  {
+   "key": "personnage",
+   "label": "Un personnage (il / elle / ce…)",
+   "n_with": 52,
+   "median_with": 0.69,
+   "median_without": 1.07,
+   "lift": 0.65
+  }
+ ],
+ "format_effects_vs_analyse": {
+  "cours_guide": {
+   "x": 2.22,
+   "lo": 1.78,
+   "hi": 2.76
+  },
+  "finary_produit": {
+   "x": 0.51,
+   "lo": 0.38,
+   "hi": 0.7
+  },
+  "opinion_actu": {
+   "x": 0.89,
+   "lo": 0.53,
+   "hi": 1.48
+  },
+  "recit": {
+   "x": 3.35,
+   "lo": 2.61,
+   "hi": 4.23
+  },
+  "talk_expert": {
+   "x": 2.14,
+   "lo": 1.73,
+   "hi": 2.62
+  },
+  "temoignage": {
+   "x": 0.87,
+   "lo": 0.63,
+   "hi": 1.19
+  }
+ },
+ "matrix": [
+  {
+   "format": "recit",
+   "format_label": "Récit / enquête",
+   "theme": "ultra_riches",
+   "theme_label": "Ultra-riches",
+   "intent": "faible",
+   "n": 22,
+   "median_index": 3.23,
+   "share_views": 0.19
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "strategie_patrimoine",
+   "theme_label": "Stratégie patrimoniale",
+   "intent": "forte",
+   "n": 20,
+   "median_index": 1.97,
+   "share_views": 0.09
+  },
+  {
+   "format": "recit",
+   "format_label": "Récit / enquête",
+   "theme": "eco_geopolitique",
+   "theme_label": "Économie & géopolitique",
+   "intent": "faible",
+   "n": 15,
+   "median_index": 1.9,
+   "share_views": 0.08
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "eco_geopolitique",
+   "theme_label": "Économie & géopolitique",
+   "intent": "faible",
+   "n": 5,
+   "median_index": 1.83,
+   "share_views": 0.04
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "fiscalite_retraite",
+   "theme_label": "Fiscalité & retraite",
+   "intent": "moyenne",
+   "n": 6,
+   "median_index": 1.65,
+   "share_views": 0.01
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "bourse_etf",
+   "theme_label": "Bourse & ETF",
+   "intent": "forte",
+   "n": 20,
+   "median_index": 1.64,
+   "share_views": 0.06
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "bourse_etf",
+   "theme_label": "Bourse & ETF",
+   "intent": "forte",
+   "n": 16,
+   "median_index": 1.61,
+   "share_views": 0.07
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "crypto",
+   "theme_label": "Crypto",
+   "intent": "forte",
+   "n": 6,
+   "median_index": 1.55,
+   "share_views": 0.01
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "eco_geopolitique",
+   "theme_label": "Économie & géopolitique",
+   "intent": "faible",
+   "n": 15,
+   "median_index": 1.53,
+   "share_views": 0.06
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "crypto",
+   "theme_label": "Crypto",
+   "intent": "forte",
+   "n": 7,
+   "median_index": 1.48,
+   "share_views": 0.02
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "autre",
+   "theme_label": "Autre",
+   "intent": "faible",
+   "n": 6,
+   "median_index": 1.27,
+   "share_views": 0.0
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "epargne_fire",
+   "theme_label": "Épargne & FIRE",
+   "intent": "forte",
+   "n": 10,
+   "median_index": 1.18,
+   "share_views": 0.03
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "epargne_fire",
+   "theme_label": "Épargne & FIRE",
+   "intent": "forte",
+   "n": 21,
+   "median_index": 0.96,
+   "share_views": 0.02
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "immobilier",
+   "theme_label": "Immobilier",
+   "intent": "moyenne",
+   "n": 11,
+   "median_index": 0.94,
+   "share_views": 0.02
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "crypto",
+   "theme_label": "Crypto",
+   "intent": "forte",
+   "n": 6,
+   "median_index": 0.89,
+   "share_views": 0.01
+  },
+  {
+   "format": "cours_guide",
+   "format_label": "Cours / guide",
+   "theme": "fiscalite_retraite",
+   "theme_label": "Fiscalité & retraite",
+   "intent": "moyenne",
+   "n": 7,
+   "median_index": 0.89,
+   "share_views": 0.02
+  },
+  {
+   "format": "talk_expert",
+   "format_label": "Interview d'expert",
+   "theme": "strategie_patrimoine",
+   "theme_label": "Stratégie patrimoniale",
+   "intent": "forte",
+   "n": 5,
+   "median_index": 0.86,
+   "share_views": 0.01
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "bourse_etf",
+   "theme_label": "Bourse & ETF",
+   "intent": "forte",
+   "n": 17,
+   "median_index": 0.74,
+   "share_views": 0.02
+  },
+  {
+   "format": "temoignage",
+   "format_label": "Témoignage",
+   "theme": "strategie_patrimoine",
+   "theme_label": "Stratégie patrimoniale",
+   "intent": "forte",
+   "n": 8,
+   "median_index": 0.71,
+   "share_views": 0.02
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "strategie_patrimoine",
+   "theme_label": "Stratégie patrimoniale",
+   "intent": "forte",
+   "n": 81,
+   "median_index": 0.63,
+   "share_views": 0.12
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "immobilier",
+   "theme_label": "Immobilier",
+   "intent": "moyenne",
+   "n": 10,
+   "median_index": 0.55,
+   "share_views": 0.01
+  },
+  {
+   "format": "finary_produit",
+   "format_label": "Produit Finary",
+   "theme": "finary",
+   "theme_label": "Finary",
+   "intent": "produit",
+   "n": 31,
+   "median_index": 0.51,
+   "share_views": 0.01
+  },
+  {
+   "format": "analyse_patrimoine",
+   "format_label": "Analyse de patrimoine",
+   "theme": "fiscalite_retraite",
+   "theme_label": "Fiscalité & retraite",
+   "intent": "moyenne",
+   "n": 5,
+   "median_index": 0.5,
+   "share_views": 0.0
+  },
+  {
+   "format": "opinion_actu",
+   "format_label": "Opinion / actu",
+   "theme": "eco_geopolitique",
+   "theme_label": "Économie & géopolitique",
+   "intent": "faible",
+   "n": 8,
+   "median_index": 0.22,
+   "share_views": 0.01
+  }
+ ],
+ "intent": [
+  {
+   "intent": "forte",
+   "n": 226,
+   "share_videos": 0.59,
+   "share_views": 0.5,
+   "median_index": 0.98,
+   "share_uploads_last12": 0.63,
+   "share_uploads_before": 0.57
+  },
+  {
+   "intent": "moyenne",
+   "n": 47,
+   "share_videos": 0.12,
+   "share_views": 0.09,
+   "median_index": 0.87,
+   "share_uploads_last12": 0.07,
+   "share_uploads_before": 0.14
+  },
+  {
+   "intent": "faible",
+   "n": 78,
+   "share_videos": 0.2,
+   "share_views": 0.4,
+   "median_index": 1.84,
+   "share_uploads_last12": 0.28,
+   "share_uploads_before": 0.19
+  },
+  {
+   "intent": "produit",
+   "n": 31,
+   "share_videos": 0.08,
+   "share_views": 0.01,
+   "median_index": 0.51,
+   "share_uploads_last12": 0.02,
+   "share_uploads_before": 0.1
+  }
+ ],
+ "analyse_label": {
+  "with_label": {
+   "n": 39,
+   "median_index": 0.55
+  },
+  "without_label": {
+   "n": 26,
+   "median_index": 0.55
+  }
+ },
+ "top": [
+  {
+   "video_id": "qe2tWfuugNM",
+   "url": "https://www.youtube.com/watch?v=qe2tWfuugNM",
+   "title": "Guide débutant : Investir 10 000 € de manière intelligente !",
+   "views": 1600000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 21.4,
+   "format": "cours_guide",
+   "theme": "strategie_patrimoine",
+   "perf_index": 14.48
+  },
+  {
+   "video_id": "9FTKLQcbdIM",
+   "url": "https://www.youtube.com/watch?v=9FTKLQcbdIM",
+   "title": "Ce cours sur la Chine devrait être obligatoire (99% ne l’ont jamais eu)",
+   "views": 2000000,
+   "cohort": "3 à 6 mois",
+   "duration_min": 21.2,
+   "format": "cours_guide",
+   "theme": "eco_geopolitique",
+   "perf_index": 13.56
+  },
+  {
+   "video_id": "NXH6Qz0glPE",
+   "url": "https://www.youtube.com/watch?v=NXH6Qz0glPE",
+   "title": "Les meilleures stratégies pour gagner en Bourse | Nicolas Chéron",
+   "views": 88000,
+   "cohort": "4 ans et plus",
+   "duration_min": 91.7,
+   "format": "talk_expert",
+   "theme": "bourse_etf",
+   "perf_index": 12.94
+  },
+  {
+   "video_id": "AcIUYyY2Kkk",
+   "url": "https://www.youtube.com/watch?v=AcIUYyY2Kkk",
+   "title": "L'art de devenir l'homme le plus riche du monde - Bernard Arnault",
+   "views": 1400000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 17.7,
+   "format": "recit",
+   "theme": "ultra_riches",
+   "perf_index": 12.67
+  },
+  {
+   "video_id": "-mce7zfourg",
+   "url": "https://www.youtube.com/watch?v=-mce7zfourg",
+   "title": "L’art de créer une dynastie légendaire : L’histoire secrète des Rothschild",
+   "views": 2100000,
+   "cohort": "1 à 2 ans",
+   "duration_min": 27.4,
+   "format": "recit",
+   "theme": "ultra_riches",
+   "perf_index": 10.74
+  },
+  {
+   "video_id": "oN48BiSo3QQ",
+   "url": "https://www.youtube.com/watch?v=oN48BiSo3QQ",
+   "title": "Les stratégies du meilleur gérant d’Europe (13,1%/an) | William Higgons | Finary Talk #25",
+   "views": 571000,
+   "cohort": "3 à 4 ans",
+   "duration_min": 70.3,
+   "format": "talk_expert",
+   "theme": "bourse_etf",
+   "perf_index": 10.02
+  },
+  {
+   "video_id": "aZtwQ7ujQ7E",
+   "url": "https://www.youtube.com/watch?v=aZtwQ7ujQ7E",
+   "title": "Anticiper la crise monétaire: Conseils d’un expert financier | Vincent Strauss | Finary Talk #42",
+   "views": 1100000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 56.3,
+   "format": "talk_expert",
+   "theme": "eco_geopolitique",
+   "perf_index": 9.95
+  },
+  {
+   "video_id": "yPep61zk0T4",
+   "url": "https://www.youtube.com/watch?v=yPep61zk0T4",
+   "title": "Mon Top 7 des meilleurs ETF en 2025 !",
+   "views": 919000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 28.5,
+   "format": "cours_guide",
+   "theme": "bourse_etf",
+   "perf_index": 8.32
+  },
+  {
+   "video_id": "quStM0_GeHc",
+   "url": "https://www.youtube.com/watch?v=quStM0_GeHc",
+   "title": "Partir à la retraite à 40 ans (frugalité & FIRE) | Victor Lora",
+   "views": 56000,
+   "cohort": "4 ans et plus",
+   "duration_min": 74.9,
+   "format": "talk_expert",
+   "theme": "epargne_fire",
+   "perf_index": 8.24
+  },
+  {
+   "video_id": "dAenp-6u9xU",
+   "url": "https://www.youtube.com/watch?v=dAenp-6u9xU",
+   "title": "Le seul cours d'économie dont vous aurez besoin",
+   "views": 1200000,
+   "cohort": "3 à 6 mois",
+   "duration_min": 27.1,
+   "format": "cours_guide",
+   "theme": "eco_geopolitique",
+   "perf_index": 8.14
+  },
+  {
+   "video_id": "mlTuxGkhrPQ",
+   "url": "https://www.youtube.com/watch?v=mlTuxGkhrPQ",
+   "title": "S'enrichir grâce à l'immobilier locatif (LMNP) | Julien Calamote",
+   "views": 55000,
+   "cohort": "4 ans et plus",
+   "duration_min": 68.2,
+   "format": "talk_expert",
+   "theme": "immobilier",
+   "perf_index": 8.09
+  },
+  {
+   "video_id": "jtRMrHX3-CQ",
+   "url": "https://www.youtube.com/watch?v=jtRMrHX3-CQ",
+   "title": "À quoi ressemble (vraiment) la vie quand l'argent est infini ?",
+   "views": 1900000,
+   "cohort": "6 à 12 mois",
+   "duration_min": 28.1,
+   "format": "recit",
+   "theme": "ultra_riches",
+   "perf_index": 7.9
+  },
+  {
+   "video_id": "uLFqhRQgYY0",
+   "url": "https://www.youtube.com/watch?v=uLFqhRQgYY0",
+   "title": "Combien d'€ pour gagner 1000€ /mois de dividendes ? (Cas chiffrés : Air Liquide, Apple, ETF...)",
+   "views": 826000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 13.7,
+   "format": "cours_guide",
+   "theme": "bourse_etf",
+   "perf_index": 7.48
+  },
+  {
+   "video_id": "wKxi12Gczh8",
+   "url": "https://www.youtube.com/watch?v=wKxi12Gczh8",
+   "title": "Faut-il tricher pour devenir milliardaire ? L’histoire de Xavier Niel",
+   "views": 803000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 21.5,
+   "format": "recit",
+   "theme": "ultra_riches",
+   "perf_index": 7.27
+  },
+  {
+   "video_id": "jADxVMhSUYE",
+   "url": "https://www.youtube.com/watch?v=jADxVMhSUYE",
+   "title": "Le piège du paiement en 3 fois expliqué",
+   "views": 1000000,
+   "cohort": "3 à 6 mois",
+   "duration_min": 18.4,
+   "format": "cours_guide",
+   "theme": "epargne_fire",
+   "perf_index": 6.78
+  }
+ ],
+ "bottom": [
+  {
+   "video_id": "VWlGFoQsGVA",
+   "url": "https://www.youtube.com/watch?v=VWlGFoQsGVA",
+   "title": "💎 Diamond Dinner : Les coulisses de la soirée @Finary",
+   "views": 2400,
+   "cohort": "3 à 4 ans",
+   "duration_min": 2.7,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.04
+  },
+  {
+   "video_id": "nPni_zD4kow",
+   "url": "https://www.youtube.com/watch?v=nPni_zD4kow",
+   "title": "Investissez en crypto sans effort avec le plan d'investissement crypto de Finary !",
+   "views": 5600,
+   "cohort": "2 à 3 ans",
+   "duration_min": 0.8,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.05
+  },
+  {
+   "video_id": "-N6f7jOOzPA",
+   "url": "https://www.youtube.com/watch?v=-N6f7jOOzPA",
+   "title": "Community Call #1 : Mounir répond aux questions des utilisateurs de Finary en direct",
+   "views": 6100,
+   "cohort": "3 à 4 ans",
+   "duration_min": 74.0,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.11
+  },
+  {
+   "video_id": "mFYykuiqnF8",
+   "url": "https://www.youtube.com/watch?v=mFYykuiqnF8",
+   "title": "La Fin de la Crise en France ? USA vs Europe, Sam Bankman Fried, l'IA d'Elon Musk… - Fin’Actu #3",
+   "views": 12000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 8.2,
+   "format": "opinion_actu",
+   "theme": "eco_geopolitique",
+   "perf_index": 0.11
+  },
+  {
+   "video_id": "MXMXM5ffNC4",
+   "url": "https://www.youtube.com/watch?v=MXMXM5ffNC4",
+   "title": "Alstom : l’histoire d’un Naufrage, présidentielle en Argentine, un marché de l'IA mouvementé...",
+   "views": 14000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 8.7,
+   "format": "opinion_actu",
+   "theme": "eco_geopolitique",
+   "perf_index": 0.13
+  },
+  {
+   "video_id": "a1l8LqsbFt8",
+   "url": "https://www.youtube.com/watch?v=a1l8LqsbFt8",
+   "title": "Les GAFAM écrasent la concurrence, Catastrophes sur le CAC40... - Fin’actu #2",
+   "views": 15000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 12.7,
+   "format": "opinion_actu",
+   "theme": "eco_geopolitique",
+   "perf_index": 0.14
+  },
+  {
+   "video_id": "pH7VzTR-iQo",
+   "url": "https://www.youtube.com/watch?v=pH7VzTR-iQo",
+   "title": "Les impacts économiques de la guerre, BlackRock dope le Bitcoin, les GAFAM... - Fin’Actu #1",
+   "views": 17000,
+   "cohort": "2 à 3 ans",
+   "duration_min": 7.8,
+   "format": "opinion_actu",
+   "theme": "eco_geopolitique",
+   "perf_index": 0.15
+  },
+  {
+   "video_id": "IkQC2TOoKzE",
+   "url": "https://www.youtube.com/watch?v=IkQC2TOoKzE",
+   "title": "Finary Stories : l'avis de nos utilisateurs | Pierre-Marie",
+   "views": 1100,
+   "cohort": "4 ans et plus",
+   "duration_min": 2.7,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.16
+  },
+  {
+   "video_id": "NWPAzU6ej-0",
+   "url": "https://www.youtube.com/watch?v=NWPAzU6ej-0",
+   "title": "Je vous parle de mon plus gros projet de 2024",
+   "views": 34000,
+   "cohort": "1 à 2 ans",
+   "duration_min": 5.5,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.17
+  },
+  {
+   "video_id": "nTjTp3qUY2U",
+   "url": "https://www.youtube.com/watch?v=nTjTp3qUY2U",
+   "title": "Finary Stories : l'avis de nos utilisateurs | Benoît",
+   "views": 1200,
+   "cohort": "4 ans et plus",
+   "duration_min": 1.7,
+   "format": "finary_produit",
+   "theme": "finary",
+   "perf_index": 0.18
+  }
+ ],
+ "labels_check": {
+  "agreement_all": 0.79,
+  "n_rules_decided": 302,
+  "agreement_when_rules_decide": 0.97
+ }
+}
