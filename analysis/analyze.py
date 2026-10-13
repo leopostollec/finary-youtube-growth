@@ -134,6 +134,32 @@ def main():
                           "median_index": r2(ap_recent[ap_recent.t_libelle_serie == 0].perf_index.median())},
     }
 
+    # ---- chiffres qui fondent les recommandations
+    def ex(rows, n=3):
+        return [{"title": t, "index": r2(i), "views": int(v)} for t, i, v in zip(rows.title[:n], rows.perf_index[:n], rows.views[:n])]
+    year = comp.title.str.contains(r"20(?:2[4-7])")
+    guides = comp[(comp.format == "cours_guide") & comp.title.str.contains("guide complet|guide pour débutant|guide débutant|guide pratique pour débutants", case=False)]
+    ana = comp[comp.format == "analyse_patrimoine"].sort_values("perf_index", ascending=False)
+    famous = ana.title.str.contains("Macron|Attal|Bayrou|gouvernement|footballer|rugbyman|youtubeur|Moubeche|DJ ", case=False)
+    niche = ana.title.str.contains("Invalide|expatrié|divorce|vendant son entreprise|Indonésie", case=False)
+    sh = shorts.copy()
+    sh["group"] = "autres"
+    sh.loc[sh.title.str.contains("riche|milliard|fortune|Arnault|royale|Tyson|Federer|Président", case=False), "group"] = "richesse"
+    sh.loc[sh.title.str.contains("Finary|transférer vos cryptos|migrer vos cryptos", case=False), "group"] = "produit"
+    sh.loc[sh.title.str.contains("vidéo compl|sur la chaîne|enquête complète|sur notre chaîne", case=False), "group"] = "annonce"
+    reco = {
+        "year_in_title": {"n": int(year.sum()), "median_with": r2(comp[year].perf_index.median()),
+                          "median_without": r2(comp[~year].perf_index.median())},
+        "guides": sorted(ex(guides.sort_values("perf_index", ascending=False), 8), key=lambda g: -g["index"]),
+        "analyses_top": ex(ana, 3),
+        "analyses_famous": {"n": int(famous.sum()), "median": r2(ana[famous].perf_index.median()),
+                            "median_others": r2(ana[~famous].perf_index.median())},
+        "analyses_niche": {"n": int(niche.sum()), "median": r2(ana[niche].perf_index.median())},
+        "shorts_groups": {g: {"n": int((sh.group == g).sum()), "median_views": int(sh[sh.group == g].views.median())}
+                          for g in ["richesse", "autres", "produit", "annonce"]},
+        "n_over_6x": int((comp.perf_index > 6).sum()),
+    }
+
     cols = ["video_id", "url", "title", "views", "cohort", "duration_min", "format", "theme", "perf_index"]
     top = comp.sort_values("perf_index", ascending=False).head(15)[cols]
     bottom_formats = comp.sort_values("perf_index").head(10)[cols]
@@ -163,6 +189,7 @@ def main():
         "format_effects_vs_analyse": format_effects,
         "matrix": matrix,
         "intent": intent,
+        "reco": reco,
         "analyse_label": serie,
         "top": json.loads(top.round({"perf_index": 2}).to_json(orient="records", force_ascii=False)),
         "bottom": json.loads(bottom_formats.round({"perf_index": 2}).to_json(orient="records", force_ascii=False)),

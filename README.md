@@ -28,9 +28,25 @@ Analyse indépendante des **390 vidéos longues** de la chaîne YouTube de Finar
 
 ![Effet des motifs de titre, brut et à format égal](docs/img/titles.png)
 
-Et aussi : les vidéos de 45 minutes et plus font 1,46 fois la vidéo typique. Les Shorts touchent 8 fois moins de monde (27 k vues médianes sur les 48 derniers), et 8 % seulement annoncent la vidéo complète dans leur titre.
+Et aussi : les vidéos de 45 minutes et plus font 1,46 fois la vidéo typique. Les Shorts touchent 8 fois moins de monde (27 k vues médianes sur les 48 derniers) ; ceux qui parlent de richesse montent à 70 k, ceux qui renvoient vers la vidéo complète plafonnent à 13 k.
+
+## Comment améliorer la chaîne : 7 recommandations
+
+Ce que je changerais dès maintenant, de l'impact le plus fort au plus simple à faire. Chaque recommandation repose sur un chiffre de l'analyse et vient avec sa mesure.
+
+1. **Mettre à jour chaque année les guides débutants sur les produits.** Ce sont parmi les vidéos les plus fortes de la chaîne : « Guide débutant : investir 10 000 € » ×14,48, « PEA : le guide complet » ×5,57, « L'Assurance-Vie : le guide complet » ×2,92. Les titres qui portent l'année font ×1,97 contre ×0,97, et le spectateur peut agir tout de suite dans Finary. → Chaque janvier, une version datée des guides PEA, assurance-vie, PER, compte-titres, ETF et crypto.
+2. **Moins d'analyses de patrimoine, mieux choisies.** 38 % des vidéos pour ×0,69. Les meilleures montrent un profil auquel beaucoup s'identifient (« Ingénieur de 25 ans avec 14 % de taux d'épargne » ×4,39) ou une personnalité (×1,22 contre ×0,69) ; les cas très particuliers (invalidité, expatriation, divorce, cession d'entreprise) tombent à ×0,29. → Choisir les candidats sur la représentativité et raconter l'analyse comme une histoire.
+3. **Mettre le chiffre clé dans le titre.** À format égal, un montant en euros fait ×1,36 ; « secret », les majuscules et les questions n'ont pas d'effet démontré. → Salaire, patrimoine, mensualité ou objectif chiffré dans chaque titre d'analyse et de cours.
+4. **Assumer les formats longs, passer les sujets courts en Shorts.** 45 minutes et plus : ×1,46 ; moins de 10 minutes : ×0,64. → Un sujet qui tient en moins de 10 minutes devient un Short ou un chapitre d'une vidéo plus longue.
+5. **Des Shorts qui se suffisent à eux-mêmes.** Shorts sur la richesse : 70 k vues médianes ; les autres : 26 k ; ceux qui renvoient vers la vidéo complète : 13 k (4 cas, à confirmer). → Une histoire complète avec une accroche forte ; le lien vers la vidéo longue passe par la fonction « vidéo associée », pas par le titre.
+6. **Faire travailler les récits pour le produit.** Les récits sur les ultra-riches font ×3,23, le meilleur score de la chaîne, sur un thème sans lien direct avec l'app. → Finir chaque récit par un pont vers le spectateur (« Et vous, comment est réparti votre patrimoine ? ») et un lien suivi vers la fonction de Finary qui y répond.
+7. **Recycler ce qui surperforme.** 20 vidéos ont fait plus de six fois la vidéo typique de leur époque. → Toute vidéo au-dessus de ×2 à 28 jours est déclinée en article SEO, en Short autonome et en e-mail aux inscrits du même thème ; l'agent hebdomadaire les signale.
+
+**Concrètement, un mois type de 9 vidéos longues** (rythme actuel : 8,7) : 3 cours ou guides sur l'investissement, 3 récits avec un pont vers le produit, 2 analyses ou témoignages de profils représentatifs, 1 interview longue. Un point de départ, à ajuster dès que les inscriptions pour 1 000 vues par format sont connues.
 
 ## Ce que je testerais en premier
+
+Les recommandations jouent sur les vues. Ces trois tests vérifient qu'elles rapportent aussi des inscriptions.
 
 | | Test | Mesure | Décision |
 |---|---|---|---|

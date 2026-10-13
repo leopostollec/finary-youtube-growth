@@ -104,6 +104,11 @@ td.t { min-width: 220px; }
 .test h3 { margin: 0 0 4px; font-size: 16px; }
 .test p { margin: 0; color: var(--ink2); font-size: 15px; }
 .test .m { margin-top: 6px; font-size: 13px; color: var(--muted); }
+.test .why { margin-top: 6px; }
+.test .why b { color: var(--ink); font-weight: 600; }
+.test h3 .n { display: inline-block; min-width: 1.6em; color: var(--s1); }
+.plan { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: var(--chip); font-size: 15px; color: var(--ink2); }
+.plan b { color: var(--ink); }
 .method { font-size: 15px; color: var(--ink2); }
 .method li { margin-bottom: 6px; }
 footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
@@ -144,9 +149,16 @@ footer .wrap { padding-top: 20px; padding-bottom: 40px; }
   <section class="card" id="durations"><h2></h2><p></p><div class="chart"></div></section>
   <section class="card" id="shorts"><h2></h2><p></p><div class="chart"></div></section>
 
+  <section class="card" id="reco">
+    <h2>Comment améliorer la chaîne : 7 recommandations</h2>
+    <p>Ce que je changerais dès maintenant, de l'impact le plus fort au plus simple à faire. Chaque recommandation repose sur un chiffre de l'analyse et vient avec sa mesure.</p>
+    <div class="tests" id="reco-list"></div>
+    <div class="plan" id="reco-plan"></div>
+  </section>
+
   <section class="card" id="tests">
     <h2>Ce que je testerais en premier</h2>
-    <p>Trois tests, du plus structurant au plus rapide. Le premier conditionne les deux autres : sans inscriptions par vidéo, on optimise des vues.</p>
+    <p>Les recommandations jouent sur les vues. Ces trois tests vérifient qu'elles rapportent aussi des inscriptions. Le premier conditionne les deux autres : sans inscriptions par vidéo, on optimise des vues.</p>
     <div class="tests">
       <div class="test"><h3>1. Mesurer les inscriptions pour 1 000 vues, par format</h3>
         <p>Un lien suivi par vidéo (UTM), un lien court dit à l'oral, et la question « Comment as-tu connu Finary ? » à l'inscription. Hypothèse : les analyses de patrimoine font moins de vues mais convertissent mieux, parce qu'elles montrent l'app.</p>
@@ -387,10 +399,61 @@ footer .wrap { padding-top: 20px; padding-bottom: 40px; }
 
   // ---------- 8. Shorts ----------
   const ratio = Math.round(O.median_views_last12 / S.median_views);
-  c = setHead('shorts', `Les Shorts touchent ${ratio} fois moins de monde et renvoient rarement vers les vidéos longues`,
-    `Sur les ${S.n} derniers Shorts, la moitié fait entre ${k(S.p25)} et ${k(S.p75)} vues, et ${pct(S.share_pointing_to_long)} seulement annoncent la vidéo complète dans leur titre. Bien employés, ils peuvent servir de bande-annonce : lien vers la vidéo associée, et mesure du passage Short → vidéo → inscription.`);
-  hbars(c, [{ label: 'Vidéo longue, 12 derniers mois', values: [O.median_views_last12] }, { label: 'Short, 48 derniers', values: [S.median_views] }],
+  const SG = R.reco.shorts_groups;
+  c = setHead('shorts', `Les Shorts touchent ${ratio} fois moins de monde, sauf ceux qui parlent de richesse`,
+    `Sur les ${S.n} derniers Shorts, la moitié fait entre ${k(S.p25)} et ${k(S.p75)} vues. Ceux qui parlent de richesse montent à ${k(SG.richesse.median_views)} ; ceux qui renvoient vers la vidéo complète ou annoncent un produit plafonnent autour de ${k(SG.annonce.median_views)}.`);
+  hbars(c, [
+      { label: 'Vidéo longue, 12 derniers mois', values: [O.median_views_last12] },
+      { label: 'Shorts sur la richesse', sub: `${SG.richesse.n} Shorts`, values: [SG.richesse.median_views] },
+      { label: 'Autres Shorts', sub: `${SG.autres.n} Shorts`, values: [SG.autres.median_views] },
+      { label: 'Shorts qui annoncent la vidéo complète', sub: `${SG.annonce.n} Shorts`, values: [SG.annonce.median_views] },
+      { label: 'Shorts sur un produit Finary', sub: `${SG.produit.n} Shorts`, values: [SG.produit.median_views] }],
     { series: [{ cls: 's1', name: 'Vues médianes' }], fmt: k });
+  c.append(el('p', 'note', 'Petits effectifs pour les deux dernières lignes (4 Shorts chacune) : une tendance à confirmer, pas une preuve.'));
+
+  // ---------- recommandations ----------
+  const RC = R.reco, G = Object.fromEntries(RC.guides.map(g => [g.title, g]));
+  const gx = t => xi(G[t].index);
+  const fam = RC.analyses_famous, top1 = RC.analyses_top[0];
+  const recos = [
+    ['Mettre à jour chaque année les guides débutants sur les produits',
+      `Les guides de base sont parmi les vidéos les plus fortes de la chaîne : « Guide débutant : investir 10 000 € » ${gx('Guide débutant : Investir 10 000 € de manière intelligente !')}, « PEA : le guide complet » ${gx('PEA : le guide complet en 8 minutes')}, « L'Assurance-Vie : le guide complet » ${gx("L'Assurance-Vie : le guide complet en 10 minutes")}. Les titres qui portent l'année font ${xi(RC.year_in_title.median_with)} contre ${xi(RC.year_in_title.median_without)}. Et le spectateur peut agir tout de suite dans Finary.`,
+      'À faire : chaque janvier, une nouvelle version datée des guides PEA, assurance-vie, PER, compte-titres, ETF et crypto.',
+      'Mesure : indice à 28 jours de la nouvelle version face à l’ancienne, inscriptions pour 1 000 vues.'],
+    ['Moins d’analyses de patrimoine, mieux choisies',
+      `Elles font ${pct(F.analyse_patrimoine.share_videos)} des vidéos pour ${xi(F.analyse_patrimoine.median_index)}. Les meilleures montrent un profil auquel beaucoup s'identifient (« ${top1.title.split(' | ')[0]} » ${xi(top1.index)}) ou une personnalité (${xi(fam.median)} contre ${xi(fam.median_others)}). Les cas très particuliers (invalidité, expatriation, divorce, cession d'entreprise) tombent à ${xi(RC.analyses_niche.median)}.`,
+      'À faire : choisir les candidats sur la représentativité (âge, salaire, situation courante) et raconter l’analyse comme une histoire (test 2).',
+      'Mesure : indice et inscriptions pour 1 000 vues, analyse par analyse.'],
+    ['Mettre le chiffre clé dans le titre',
+      `À format égal, un montant en euros fait ${xi(TFk.montant_euros.adjusted.x)} ; « secret », les majuscules et les questions n'ont pas d'effet démontré.`,
+      'À faire : salaire, patrimoine, mensualité ou objectif chiffré dans chaque titre d’analyse et de cours.',
+      'Mesure : test A/B de titres et de miniatures dans YouTube Studio, là où l’outil le permet.'],
+    ['Assumer les formats longs, passer les sujets courts en Shorts',
+      `Les vidéos de 45 minutes et plus font ${xi(longest.median_index)}, celles de moins de 10 minutes ${xi(D[0].median_index)}.`,
+      'À faire : un sujet qui tient en moins de 10 minutes devient un Short ou un chapitre d’une vidéo plus longue.',
+      'Mesure : indice par durée, chaque trimestre.'],
+    ['Des Shorts qui se suffisent à eux-mêmes',
+      `Les Shorts sur la richesse font ${k(SG.richesse.median_views)} vues médianes, les autres ${k(SG.autres.median_views)}, ceux qui renvoient vers la vidéo complète ${k(SG.annonce.median_views)}.`,
+      'À faire : un Short = une histoire complète avec une accroche forte. Le lien vers la vidéo longue passe par la fonction « vidéo associée », pas par le titre ; les annonces produit vont dans l’app et la newsletter.',
+      'Mesure : vues et taux de passage du Short vers la vidéo associée (YouTube Studio).'],
+    ['Faire travailler les récits pour le produit',
+      `Les récits sur les ultra-riches font ${xi(R.matrix[0].median_index)}, le meilleur score de la chaîne, sur un thème sans lien direct avec l'app.`,
+      'À faire : finir chaque récit par un pont vers le spectateur (« Et vous, comment est réparti votre patrimoine ? ») et un lien suivi vers la fonction de Finary qui y répond, en description et en commentaire épinglé.',
+      'Mesure : inscriptions pour 1 000 vues des récits, avant et après le pont.'],
+    ['Recycler ce qui surperforme',
+      `${RC.n_over_6x} vidéos ont fait plus de six fois la vidéo typique de leur époque.`,
+      'À faire : toute vidéo au-dessus de ×2 à 28 jours est déclinée en article SEO, en Short autonome et en e-mail aux inscrits intéressés par le même thème. L’agent hebdomadaire les signale.',
+      'Mesure : trafic de l’article, vues du Short, clics de l’e-mail.'],
+  ];
+  const rl = document.getElementById('reco-list');
+  const nb2 = t => t.replace(/« /g, '«\u00a0').replace(/ »/g, '\u00a0»');
+  recos.forEach(([title, why, todo, measure], i) => {
+    [why, todo, measure] = [why, todo, measure].map(nb2);
+    const b = el('div', 'test'); const h = el('h3'); h.append(el('span', 'n', `${i + 1}.`), document.createTextNode(title));
+    b.append(h, el('p', 'why', why), el('p', 'why', todo), el('p', 'm', measure)); rl.append(b);
+  });
+  const plan = document.getElementById('reco-plan');
+  plan.append(el('b', null, 'Concrètement, un mois type de 9 vidéos longues '), document.createTextNode(`(rythme actuel : ${dec(O.uploads_per_month_last12)}) : 3 cours ou guides sur l'investissement, 3 récits avec un pont vers le produit, 2 analyses ou témoignages de profils représentatifs, 1 interview longue. Un point de départ, à ajuster dès que les inscriptions pour 1 000 vues par format sont connues.`));
 
   // ---------- 9. top 15 ----------
   const fmtIdx = v => xi(v);

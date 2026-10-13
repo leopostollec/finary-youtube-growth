@@ -125,7 +125,7 @@ def build_report(videos: list[dict], labels: dict, medians: dict, baseline: list
             act = "trop tôt pour juger"
         elif v["index"] >= 2:
             act = "décliner (Short, article, e-mail)"
-            actions.append(f"« {v['title']} » fait {fmt_x(v['index'])} : la décliner en Short-bande-annonce, article SEO "
+            actions.append(f"« {v['title']} » fait {fmt_x(v['index'])} : la décliner en Short autonome, article SEO "
                            f"et e-mail aux inscrits intéressés par « {THEME_LABEL[v['theme']]} ».")
         elif v["index"] < 0.6 and v["format"] == "analyse_patrimoine":
             act = "tester un titre « récit »"

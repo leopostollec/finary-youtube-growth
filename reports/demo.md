@@ -37,10 +37,10 @@
 - Titres avec un montant en € : 12 % (à format égal, ×1,36 dans l'historique).
 
 ## Actions proposées
-- « Vous n'êtes pas prêt pour 2027 » fait ×2,55 : la décliner en Short-bande-annonce, article SEO et e-mail aux inscrits intéressés par « Économie & géopolitique ».
-- « L’homme le plus puissant dont personne ne parle » fait ×3,41 : la décliner en Short-bande-annonce, article SEO et e-mail aux inscrits intéressés par « Ultra-riches ».
-- « Ce cours sur la fiscalité devrait être obligatoire (99% ne l'auront jamais) » fait ×3,19 : la décliner en Short-bande-annonce, article SEO et e-mail aux inscrits intéressés par « Fiscalité & retraite ».
-- « Toute une génération ruinée en moins d'un mois » fait ×2,00 : la décliner en Short-bande-annonce, article SEO et e-mail aux inscrits intéressés par « Économie & géopolitique ».
-- « Ils sont plus riches que Musk, mais personne ne parle d’eux. » fait ×2,36 : la décliner en Short-bande-annonce, article SEO et e-mail aux inscrits intéressés par « Ultra-riches ».
+- « Vous n'êtes pas prêt pour 2027 » fait ×2,55 : la décliner en Short autonome, article SEO et e-mail aux inscrits intéressés par « Économie & géopolitique ».
+- « L’homme le plus puissant dont personne ne parle » fait ×3,41 : la décliner en Short autonome, article SEO et e-mail aux inscrits intéressés par « Ultra-riches ».
+- « Ce cours sur la fiscalité devrait être obligatoire (99% ne l'auront jamais) » fait ×3,19 : la décliner en Short autonome, article SEO et e-mail aux inscrits intéressés par « Fiscalité & retraite ».
+- « Toute une génération ruinée en moins d'un mois » fait ×2,00 : la décliner en Short autonome, article SEO et e-mail aux inscrits intéressés par « Économie & géopolitique ».
+- « Ils sont plus riches que Musk, mais personne ne parle d’eux. » fait ×2,36 : la décliner en Short autonome, article SEO et e-mail aux inscrits intéressés par « Ultra-riches ».
 
 _Étiquettes : historique. Indice calculé sur la référence data/videos.csv._

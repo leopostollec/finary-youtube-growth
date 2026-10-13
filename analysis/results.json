@@ -750,6 +750,100 @@
    "share_uploads_before": 0.1
   }
  ],
+ "reco": {
+  "year_in_title": {
+   "n": 16,
+   "median_with": 1.97,
+   "median_without": 0.97
+  },
+  "guides": [
+   {
+    "title": "Guide débutant : Investir 10 000 € de manière intelligente !",
+    "index": 14.48,
+    "views": 1600000
+   },
+   {
+    "title": "PEA : le guide complet en 8 minutes",
+    "index": 5.57,
+    "views": 616000
+   },
+   {
+    "title": "Comment investir en bourse ? Le guide pour débutant (2026)",
+    "index": 4.56,
+    "views": 891000
+   },
+   {
+    "title": "L'Assurance-Vie : le guide complet en 10 minutes",
+    "index": 2.92,
+    "views": 323000
+   },
+   {
+    "title": "Comment investir en crypto ? Guide pratique pour débutants (2026)",
+    "index": 2.35,
+    "views": 459000
+   },
+   {
+    "title": "Atteindre l'indépendance financière : le guide pour débutant",
+    "index": 2.11,
+    "views": 412000
+   },
+   {
+    "title": "Le Plan Épargne Retraite (PER) : le guide complet en 8 minutes",
+    "index": 1.86,
+    "views": 206000
+   },
+   {
+    "title": "Le Compte-titres ordinaire (CTO) : le guide complet en 6 minutes",
+    "index": 1.14,
+    "views": 126000
+   }
+  ],
+  "analyses_top": [
+   {
+    "title": "Ingénieur de 25 ans avec 14% de taux d’épargne | Analyse de cashflow",
+    "index": 4.39,
+    "views": 250000
+   },
+   {
+    "title": "Ce consultant de 41 ans gagne 2075€ dividendes/mois | Présentation de Portefeuille",
+    "index": 4.32,
+    "views": 246000
+   },
+   {
+    "title": "Étudiant de 20 ans avec 63k€ de patrimoine (sans héritage) | Présentation de patrimoine",
+    "index": 3.26,
+    "views": 186000
+   }
+  ],
+  "analyses_famous": {
+   "n": 9,
+   "median": 1.22,
+   "median_others": 0.69
+  },
+  "analyses_niche": {
+   "n": 6,
+   "median": 0.29
+  },
+  "shorts_groups": {
+   "richesse": {
+    "n": 9,
+    "median_views": 70000
+   },
+   "autres": {
+    "n": 31,
+    "median_views": 26000
+   },
+   "produit": {
+    "n": 4,
+    "median_views": 12700
+   },
+   "annonce": {
+    "n": 4,
+    "median_views": 13000
+   }
+  },
+  "n_over_6x": 20
+ },
  "analyse_label": {
   "with_label": {
    "n": 39,
